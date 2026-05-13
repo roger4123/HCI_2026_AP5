@@ -1,0 +1,1430 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MidNight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-label="MidNight campaign app preview">
+      <section class="phone-screen login-screen" data-screen="login">
+        <header class="brand-header login-brand">
+          <h1>MidNight</h1>
+          <img
+            class="hero-logo login-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <p>Be ready for a night of adventure</p>
+        </header>
+
+        <form class="campaign-form login-form">
+          <div class="auth-switch">
+            <button type="button" class="auth-switch-active" data-target="login">Login</button>
+            <button type="button" data-target="register">Register</button>
+          </div>
+          <label class="field-group">
+            <span>Name</span>
+            <input type="text" name="loginName" autocomplete="username" />
+          </label>
+          <label class="field-group">
+            <span>Password</span>
+            <input type="password" name="loginPassword" autocomplete="current-password" />
+          </label>
+          <button type="button" class="menu-button form-submit" data-target="home">
+            Enter MidNight
+          </button>
+          <button type="button" class="small-action-button alt-auth-button" data-target="register">
+            Create Account
+          </button>
+          <button type="button" class="text-link-button">Recover password</button>
+        </form>
+      </section>
+
+      <section class="phone-screen login-screen" data-screen="register" hidden>
+        <header class="brand-header login-brand">
+          <h1>MidNight</h1>
+          <img
+            class="hero-logo login-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <p>Claim your name before the torches go out</p>
+        </header>
+
+        <form class="campaign-form login-form">
+          <div class="auth-switch">
+            <button type="button" data-target="login">Login</button>
+            <button type="button" class="auth-switch-active" data-target="register">Register</button>
+          </div>
+          <label class="field-group">
+            <span>Name</span>
+            <input type="text" name="registerName" autocomplete="username" />
+          </label>
+          <label class="field-group">
+            <span>Password</span>
+            <input type="password" name="registerPassword" autocomplete="new-password" />
+          </label>
+          <button type="button" class="menu-button form-submit" data-target="home">
+            Register
+          </button>
+          <button type="button" class="text-link-button" data-target="login">
+            Already have an account?
+          </button>
+        </form>
+      </section>
+
+      <section class="phone-screen" data-screen="home" hidden>
+        <header class="brand-header">
+          <h1>MidNight</h1>
+        </header>
+
+        <img
+          class="hero-logo"
+          src="assets/midnight-logo.png"
+          alt="MidNight hooded adventurer logo"
+        />
+
+        <nav class="menu-list" aria-label="Main menu">
+          <button type="button" class="menu-button" data-target="new-campaign">
+            <span class="menu-icon" aria-hidden="true">
+              <img src="assets/icon-map.svg" alt="" />
+            </span>
+            <span>New Campaign</span>
+          </button>
+          <button type="button" class="menu-button" data-target="join-campaign">
+            <span class="menu-icon" aria-hidden="true">
+              <img src="assets/icon-hands.svg" alt="" />
+            </span>
+            <span>Join Campaign</span>
+          </button>
+          <button type="button" class="menu-button" data-target="characters-screen">
+            <span class="menu-icon" aria-hidden="true">
+              <img src="assets/icon-axe.svg" alt="" />
+            </span>
+            <span>Your Characters</span>
+          </button>
+          <button type="button" class="menu-button" data-target="history-screen">
+            <span class="menu-icon" aria-hidden="true">
+              <img src="assets/icon-eclipse.svg" alt="" />
+            </span>
+            <span>History</span>
+          </button>
+          <button type="button" class="menu-button" data-target="social-screen">
+            <span class="menu-icon" aria-hidden="true">
+              <img src="assets/icon-social.svg" alt="" />
+            </span>
+            <span>Social</span>
+          </button>
+          <button type="button" class="menu-button" data-target="news-screen">
+            <span class="menu-icon" aria-hidden="true">
+              <img src="assets/icon-news.svg" alt="" />
+            </span>
+            <span>News</span>
+          </button>
+          <button type="button" class="menu-button menu-button-secondary" data-target="login">
+            <span class="menu-icon" aria-hidden="true">
+              <img src="assets/icon-door.svg" alt="" />
+            </span>
+            <span>Exit</span>
+          </button>
+        </nav>
+      </section>
+
+      <section class="phone-screen join-screen" data-screen="join-campaign" hidden>
+        <header class="campaign-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button type="button" class="back-button" data-target="home" aria-label="Back to menu">
+            Back
+          </button>
+        </header>
+
+        <div class="campaign-heading">
+          <p>Join Campaign</p>
+          <h2>Find a Table</h2>
+        </div>
+
+        <form class="campaign-form">
+          <label class="field-group">
+            <span>Name</span>
+            <input type="text" name="joinName" autocomplete="off" />
+          </label>
+          <label class="field-group">
+            <span>Password</span>
+            <input type="password" name="joinPassword" autocomplete="current-password" />
+          </label>
+        </form>
+
+        <section class="dm-panel running-panel" aria-label="List of running campaigns">
+          <div class="section-title-row">
+            <span>Running Campaigns</span>
+            <strong>3 online</strong>
+          </div>
+
+          <div class="running-list">
+            <button
+              type="button"
+              class="running-chip running-chip-active"
+              data-campaign-name="The Ashen Vault"
+              data-campaign-players="2/4"
+              data-campaign-difficulty="Skeleton"
+              data-campaign-level="1"
+              data-campaign-owner="Elowen Nightbriar"
+            >
+              <span>The Ashen Vault</span>
+              <strong>2/4 - Skeleton</strong>
+            </button>
+            <button
+              type="button"
+              class="running-chip"
+              data-campaign-name="Moonwell Below"
+              data-campaign-players="3/5"
+              data-campaign-difficulty="Wraith"
+              data-campaign-level="3"
+              data-campaign-owner="Mara Vell"
+            >
+              <span>Moonwell Below</span>
+              <strong>3/5 - Wraith</strong>
+            </button>
+            <button
+              type="button"
+              class="running-chip"
+              data-campaign-name="Lichfire Abbey"
+              data-campaign-players="1/4"
+              data-campaign-difficulty="Lich"
+              data-campaign-level="5"
+              data-campaign-owner="Borin Kett"
+            >
+              <span>Lichfire Abbey</span>
+              <strong>1/4 - Lich</strong>
+            </button>
+          </div>
+
+          <article class="running-details" aria-label="Selected campaign details">
+            <div>
+              <span>Name:</span>
+              <strong data-running-name>The Ashen Vault</strong>
+            </div>
+            <div>
+              <span>Players:</span>
+              <strong data-running-players>2/4</strong>
+            </div>
+            <div>
+              <span>Difficulty:</span>
+              <strong data-running-difficulty>Skeleton</strong>
+            </div>
+            <div>
+              <span>Starting Level:</span>
+              <strong data-running-level>1</strong>
+            </div>
+            <div>
+              <span>Owner:</span>
+              <strong data-running-owner>Elowen Nightbriar</strong>
+            </div>
+          </article>
+        </section>
+
+        <button type="button" class="menu-button form-submit" data-target="player-lobby">
+          Join Table
+        </button>
+      </section>
+
+      <section class="phone-screen lobby-screen" data-screen="player-lobby" hidden>
+        <header class="campaign-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button
+            type="button"
+            class="back-button"
+            data-target="join-campaign"
+            aria-label="Back to join campaign"
+          >
+            Back
+          </button>
+        </header>
+
+        <div class="campaign-heading lobby-heading">
+          <p>Player Lobby</p>
+          <h2>The Ashen Vault</h2>
+        </div>
+
+        <section class="lobby-summary" aria-label="Campaign details">
+          <div><span>Name:</span><strong>The Ashen Vault</strong></div>
+          <div><span>Type:</span><strong>Dungeons And Dragons 5E</strong></div>
+          <div><span>Starting Level:</span><strong>1</strong></div>
+          <div><span>Difficulty:</span><strong>Skeleton</strong></div>
+        </section>
+
+        <section class="players-panel" aria-label="Players">
+          <div class="players-header">
+            <span>Players</span>
+            <strong>2/4</strong>
+          </div>
+          <div class="players-meter" aria-hidden="true"><span></span></div>
+          <div class="player-list">
+            <article class="player-row">
+              <div class="player-identity"><strong>Elowen Nightbriar</strong></div>
+              <span class="player-role">Owner</span>
+            </article>
+            <article class="player-row">
+              <div class="player-identity"><strong>Kael Ironvein</strong></div>
+              <span class="player-role">Player</span>
+            </article>
+          </div>
+        </section>
+
+        <button
+          type="button"
+          class="menu-button locked-start-button"
+          data-target="player-map"
+          aria-label="Campaign is locked"
+        >
+          <span>Locked</span>
+        </button>
+      </section>
+
+      <section class="phone-screen campaign-screen" data-screen="new-campaign" hidden>
+        <header class="campaign-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button type="button" class="back-button" data-target="home" aria-label="Back to menu">
+            Back
+          </button>
+        </header>
+
+        <div class="campaign-heading">
+          <p>Create Campaign</p>
+          <h2>Dungeons and Dragons 5E</h2>
+        </div>
+
+        <form class="campaign-form">
+          <label class="field-group">
+            <span>Campaign Name</span>
+            <input type="text" name="campaignName" autocomplete="off" />
+          </label>
+
+          <label class="field-group">
+            <span>Password</span>
+            <input type="password" name="password" autocomplete="new-password" />
+          </label>
+
+          <div class="form-row">
+            <label class="field-group">
+              <span>Starting Level</span>
+              <input type="number" name="startingLevel" min="1" max="20" value="1" />
+            </label>
+
+            <label class="field-group">
+              <span>Players</span>
+              <input type="number" name="numberOfPlayers" min="1" max="12" value="4" />
+            </label>
+          </div>
+
+          <fieldset class="difficulty-field">
+            <legend>Difficulty</legend>
+            <input type="hidden" name="difficulty" value="Skeleton" />
+            <div class="difficulty-list" aria-label="Campaign difficulty">
+              <button
+                type="button"
+                class="difficulty-option"
+                data-difficulty="Skeleton"
+                data-selected="true"
+                aria-pressed="true"
+              >
+                <span class="monster-face" aria-hidden="true">
+                  <img src="assets/difficulty-skeleton.svg" alt="" />
+                </span>
+                <span>Skeleton</span>
+              </button>
+              <button
+                type="button"
+                class="difficulty-option"
+                data-difficulty="Wraith"
+                aria-pressed="false"
+              >
+                <span class="monster-face" aria-hidden="true">
+                  <img src="assets/difficulty-wraith.svg" alt="" />
+                </span>
+                <span>Wraith</span>
+              </button>
+              <button
+                type="button"
+                class="difficulty-option"
+                data-difficulty="Lich"
+                aria-pressed="false"
+              >
+                <span class="monster-face" aria-hidden="true">
+                  <img src="assets/difficulty-lich.svg" alt="" />
+                </span>
+                <span>Lich</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <label class="field-group">
+            <span>Homebrew Rules</span>
+            <textarea name="homebrewRules" rows="5"></textarea>
+          </label>
+
+          <button type="button" class="menu-button form-submit" data-target="campaign-lobby">
+            Create Campaign
+          </button>
+        </form>
+      </section>
+
+      <section class="phone-screen lobby-screen" data-screen="campaign-lobby" hidden>
+        <header class="campaign-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button
+            type="button"
+            class="back-button"
+            data-target="new-campaign"
+            aria-label="Back to campaign form"
+          >
+            Back
+          </button>
+        </header>
+
+        <div class="campaign-heading lobby-heading">
+          <p>Campaign Lobby</p>
+          <h2>The Ashen Vault</h2>
+        </div>
+
+        <section class="lobby-summary" aria-label="Campaign details">
+          <div>
+            <span>Name:</span>
+            <strong>The Ashen Vault</strong>
+          </div>
+          <div>
+            <span>Type:</span>
+            <strong>Dungeons And Dragons 5E</strong>
+          </div>
+          <div>
+            <span>Starting Level:</span>
+            <strong>1</strong>
+          </div>
+          <div>
+            <span>Difficulty:</span>
+            <strong>Skeleton</strong>
+          </div>
+        </section>
+
+        <section class="players-panel" aria-label="Players">
+          <div class="players-header">
+            <span>Players</span>
+            <strong>2/4</strong>
+          </div>
+          <div class="players-meter" aria-hidden="true">
+            <span></span>
+          </div>
+
+          <div class="player-list">
+            <article class="player-row">
+              <div class="player-identity">
+                <span class="crown-mark" aria-hidden="true"></span>
+                <strong>Elowen Nightbriar</strong>
+              </div>
+              <span class="player-role">Owner</span>
+            </article>
+            <article class="player-row">
+              <div class="player-identity">
+                <strong>Kael Ironvein</strong>
+              </div>
+              <span class="player-role">Player</span>
+            </article>
+          </div>
+        </section>
+
+        <button type="button" class="menu-button start-campaign-button" data-target="session-map">
+          Start the Campaign
+        </button>
+      </section>
+
+      <section class="phone-screen map-screen" data-screen="session-map" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button
+            type="button"
+            class="back-button"
+            data-target="campaign-lobby"
+            aria-label="Back to campaign lobby"
+          >
+            Lobby
+          </button>
+        </header>
+
+        <div class="campaign-heading dm-heading">
+          <p>Campaign Table</p>
+          <h2>The Ashen Vault</h2>
+        </div>
+
+        <div class="map-actions">
+          <button type="button" class="small-action-button">Load Map</button>
+          <button type="button" class="small-action-button danger-action">Unload Map</button>
+        </div>
+
+        <div class="dm-tool-grid">
+          <button type="button" class="small-action-button" data-target="dice-screen" data-return="session-map">Roll Dice</button>
+          <button type="button" class="small-action-button" data-target="dm-shop-screen">Shop</button>
+          <button type="button" class="small-action-button alert-action" data-target="alert-screen">
+            Alert Players
+          </button>
+        </div>
+
+        <section class="battle-map" aria-label="Loaded dungeon map mockup">
+          <div class="map-room map-room-a"></div>
+          <div class="map-room map-room-b"></div>
+          <div class="map-room map-room-c"></div>
+          <span class="wooden-box box-a"></span>
+          <span class="wooden-box box-b"></span>
+          <span class="wooden-box box-c"></span>
+          <span class="map-pillar pillar-a"></span>
+          <span class="map-pillar pillar-b"></span>
+          <span class="map-trap trap-a"></span>
+          <div class="map-corridor map-corridor-a"></div>
+          <div class="map-corridor map-corridor-b"></div>
+          <span class="map-token token-player-a"></span>
+          <span class="map-token token-player-b"></span>
+          <span class="map-token token-enemy"></span>
+          <span class="map-label">Crypt of Lanterns</span>
+        </section>
+
+        <div class="map-legend" aria-label="Map legend">
+          <span><i class="legend-dot enemy-dot"></i>Red Circle = Enemy</span>
+          <span><i class="legend-dot ally-dot"></i>Green = Ally / NPC</span>
+          <span><i class="legend-box"></i>Square = Wooden Box</span>
+        </div>
+
+        <div class="session-tabs">
+          <button type="button" class="menu-button" data-target="dm-screen">Dashboard</button>
+          <button type="button" class="menu-button" data-target="quests-screen">Quests</button>
+        </div>
+      </section>
+
+      <section class="phone-screen dm-screen" data-screen="dm-screen" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button
+            type="button"
+            class="back-button"
+            data-target="session-map"
+            aria-label="Back to campaign table"
+          >
+            Map
+          </button>
+        </header>
+
+        <div class="campaign-heading dm-heading">
+          <p>Dungeon Master</p>
+          <h2>The Ashen Vault</h2>
+        </div>
+
+        <section class="dm-panel" aria-label="Active players">
+          <div class="section-title-row">
+            <span>Players</span>
+            <strong>2 active</strong>
+          </div>
+
+          <article class="character-row">
+            <div>
+              <strong>Elowen Nightbriar</strong>
+              <span>Lv. 1 Cleric</span>
+            </div>
+            <dl>
+              <div>
+                <dt>HP</dt>
+                <dd>10/10</dd>
+              </div>
+              <div>
+                <dt>Spells</dt>
+                <dd>2/2</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="character-row">
+            <div>
+              <strong>Kael Ironvein</strong>
+              <span>Lv. 1 Fighter</span>
+            </div>
+            <dl>
+              <div>
+                <dt>HP</dt>
+                <dd>12/12</dd>
+              </div>
+              <div>
+                <dt>Spells</dt>
+                <dd>0/0</dd>
+              </div>
+            </dl>
+          </article>
+        </section>
+
+        <div class="enemy-actions">
+          <button type="button" class="small-action-button">Create Monster</button>
+          <button type="button" class="small-action-button danger-action">Delete Enemy</button>
+        </div>
+
+        <section class="dm-panel enemy-panel" aria-label="Enemy list">
+          <div class="section-title-row">
+            <span>Enemy List</span>
+            <strong>3 seen</strong>
+          </div>
+
+          <div class="enemy-list">
+            <button
+              type="button"
+              class="enemy-chip enemy-chip-active"
+              data-enemy-name="Mimic"
+              data-enemy-cr="CR 2"
+              data-enemy-description="Shapechanger ambusher disguised as dungeon furniture or treasure. It waits motionless, then grapples prey with adhesive limbs."
+              data-enemy-health="58 HP"
+              data-enemy-armor="AC 12"
+              data-enemy-speed="15 ft."
+              data-enemy-abilities="Adhesive, False Appearance, Grappler, Bite +5, Pseudopod +5."
+            >
+              <span>Mimic</span>
+              <strong>CR 2</strong>
+            </button>
+            <button
+              type="button"
+              class="enemy-chip"
+              data-enemy-name="Skeleton Guard"
+              data-enemy-cr="CR 1/4"
+              data-enemy-description="Animated bones in rusted mail, usually bound to a crypt door or cursed reliquary."
+              data-enemy-health="13 HP"
+              data-enemy-armor="AC 13"
+              data-enemy-speed="30 ft."
+              data-enemy-abilities="Shortsword +4, Shortbow +4, vulnerable to bludgeoning."
+            >
+              <span>Skeleton Guard</span>
+              <strong>CR 1/4</strong>
+            </button>
+            <button
+              type="button"
+              class="enemy-chip"
+              data-enemy-name="Gloom Rat"
+              data-enemy-cr="CR 1/8"
+              data-enemy-description="A swollen cellar rat carrying shadow sickness through old tunnels and broken wells."
+              data-enemy-health="7 HP"
+              data-enemy-armor="AC 11"
+              data-enemy-speed="25 ft."
+              data-enemy-abilities="Bite +3, Pack Tactics, Darkvision 30 ft."
+            >
+              <span>Gloom Rat</span>
+              <strong>CR 1/8</strong>
+            </button>
+          </div>
+
+          <article class="monster-sheet" aria-label="Selected monster sheet">
+            <div class="monster-sheet-header">
+              <div>
+                <span>Selected Enemy</span>
+                <h3 data-enemy-sheet-name>Mimic</h3>
+              </div>
+              <strong data-enemy-sheet-cr>CR 2</strong>
+            </div>
+
+            <p data-enemy-sheet-description>
+              Shapechanger ambusher disguised as dungeon furniture or treasure.
+              It waits motionless, then grapples prey with adhesive limbs.
+            </p>
+
+            <div class="monster-stats">
+              <div>
+                <span>Health</span>
+                <strong data-enemy-sheet-health>58 HP</strong>
+              </div>
+              <div>
+                <span>Armor</span>
+                <strong data-enemy-sheet-armor>AC 12</strong>
+              </div>
+              <div>
+                <span>Speed</span>
+                <strong data-enemy-sheet-speed>15 ft.</strong>
+              </div>
+            </div>
+
+            <div class="ability-list">
+              <span>Abilities</span>
+              <p data-enemy-sheet-abilities>Adhesive, False Appearance, Grappler, Bite +5, Pseudopod +5.</p>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section class="phone-screen map-screen" data-screen="player-map" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button
+            type="button"
+            class="back-button"
+            data-target="player-lobby"
+            aria-label="Back to player lobby"
+          >
+            Lobby
+          </button>
+        </header>
+
+        <div class="campaign-heading dm-heading">
+          <p>Player Table</p>
+          <h2>The Ashen Vault</h2>
+        </div>
+
+        <section class="lobby-summary compact-summary" aria-label="Campaign details">
+          <div><span>Type:</span><strong>Dungeons And Dragons 5E</strong></div>
+          <div><span>Level:</span><strong>1</strong></div>
+          <div><span>Difficulty:</span><strong>Skeleton</strong></div>
+        </section>
+
+        <section class="battle-map" aria-label="Loaded dungeon map mockup">
+          <div class="map-room map-room-a"></div>
+          <div class="map-room map-room-b"></div>
+          <div class="map-room map-room-c"></div>
+          <span class="wooden-box box-a"></span>
+          <span class="wooden-box box-b"></span>
+          <span class="wooden-box box-c"></span>
+          <span class="map-pillar pillar-a"></span>
+          <span class="map-pillar pillar-b"></span>
+          <span class="map-trap trap-a"></span>
+          <div class="map-corridor map-corridor-a"></div>
+          <div class="map-corridor map-corridor-b"></div>
+          <span class="map-token token-player-a"></span>
+          <span class="map-token token-player-b"></span>
+          <span class="map-token token-enemy"></span>
+          <span class="map-label">Crypt of Lanterns</span>
+        </section>
+
+        <div class="map-legend" aria-label="Map legend">
+          <span><i class="legend-dot enemy-dot"></i>Red Circle = Enemy</span>
+          <span><i class="legend-dot ally-dot"></i>Green = Ally / NPC</span>
+          <span><i class="legend-box"></i>Square = Wooden Box</span>
+        </div>
+
+        <div class="session-tabs">
+          <button type="button" class="menu-button" data-target="player-dashboard">Dashboard</button>
+          <button type="button" class="menu-button" data-target="player-quests">Quests</button>
+        </div>
+
+        <div class="player-tool-grid">
+          <button type="button" class="small-action-button" data-target="dice-screen" data-return="player-map">Roll Dice</button>
+          <button type="button" class="small-action-button" data-target="player-shop-screen">Shop</button>
+        </div>
+      </section>
+
+      <section class="phone-screen dm-screen" data-screen="player-dashboard" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button
+            type="button"
+            class="back-button"
+            data-target="player-map"
+            aria-label="Back to player map"
+          >
+            Map
+          </button>
+        </header>
+
+        <div class="campaign-heading dm-heading">
+          <p>Character Dashboard</p>
+          <h2>Kael Ironvein</h2>
+        </div>
+
+        <section class="dm-panel character-sheet-mini" aria-label="Character sheet">
+          <div class="section-title-row">
+            <span>Fighter - Level 1</span>
+            <strong>AC 16</strong>
+          </div>
+          <div class="monster-stats">
+            <div><span>Health</span><strong>12/12</strong></div>
+            <div><span>Speed</span><strong>30 ft.</strong></div>
+            <div><span>Affinity</span><strong>Iron</strong></div>
+          </div>
+          <div class="character-grid">
+            <div><span>Spells Learned</span><strong>None</strong></div>
+            <div><span>Inventory</span><strong>Longsword, Shield, Torch, Rope</strong></div>
+            <div><span>Traits</span><strong>Second Wind, Stonecunning</strong></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="phone-screen quests-screen" data-screen="player-quests" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button
+            type="button"
+            class="back-button"
+            data-target="player-map"
+            aria-label="Back to player map"
+          >
+            Map
+          </button>
+        </header>
+
+        <div class="campaign-heading dm-heading">
+          <p>Quest Board</p>
+          <h2>Quests</h2>
+        </div>
+
+        <section class="quest-editor dm-panel" aria-label="Quest details">
+          <label class="field-group">
+            <span>Quest Story</span>
+            <textarea rows="4" readonly>Helen WitchWood asks the party to recover a silver reliquary from the old crypt beneath Ashen Hill.</textarea>
+          </label>
+          <div class="quest-reward-grid">
+            <label class="field-group">
+              <span>Quest Reward</span>
+              <input type="text" value="50 Gold" readonly />
+            </label>
+            <label class="field-group">
+              <span>XP</span>
+              <input type="text" value="50" readonly />
+            </label>
+          </div>
+          <label class="field-group">
+            <span>Giver</span>
+            <input type="text" value="Helen WitchWood" readonly />
+          </label>
+        </section>
+
+        <div class="enemy-actions">
+          <button type="button" class="small-action-button">Accept Quest</button>
+          <button type="button" class="small-action-button danger-action">Refuse Quest</button>
+        </div>
+
+        <section class="dm-panel quest-list-panel" aria-label="Quest list">
+          <div class="section-title-row">
+            <span>Quest List</span>
+            <strong>Active / Finished</strong>
+          </div>
+          <div class="quest-list">
+            <button type="button" class="quest-chip quest-chip-active">
+              <span>Reliquary of Ashen Hill</span>
+              <strong>Active</strong>
+            </button>
+            <button type="button" class="quest-chip">
+              <span>The Missing Lantern Boy</span>
+              <strong>Active</strong>
+            </button>
+            <button type="button" class="quest-chip">
+              <span>Rats in the Old Cellar</span>
+              <strong>Finished</strong>
+            </button>
+          </div>
+        </section>
+      </section>
+
+      <section class="phone-screen quests-screen" data-screen="quests-screen" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button
+            type="button"
+            class="back-button"
+            data-target="session-map"
+            aria-label="Back to campaign table"
+          >
+            Map
+          </button>
+        </header>
+
+        <div class="campaign-heading dm-heading">
+          <p>Quest Journal</p>
+          <h2>Quests</h2>
+        </div>
+
+        <section class="quest-editor dm-panel" aria-label="Selected quest details">
+          <label class="field-group">
+            <span>Quest Story</span>
+            <textarea name="questStory" rows="4">Helen WitchWood asks the party to recover a silver reliquary from the old crypt beneath Ashen Hill.</textarea>
+          </label>
+
+          <div class="quest-reward-grid">
+            <label class="field-group">
+              <span>Quest Reward</span>
+              <input type="text" name="questReward" value="50 Gold" />
+            </label>
+            <label class="field-group">
+              <span>XP</span>
+              <input type="text" name="questXp" value="50" />
+            </label>
+          </div>
+
+          <label class="field-group">
+            <span>Giver</span>
+            <input type="text" name="questGiver" value="Helen WitchWood" />
+          </label>
+        </section>
+
+        <div class="enemy-actions">
+          <button type="button" class="small-action-button">Create Quest</button>
+          <button type="button" class="small-action-button danger-action">Delete Quest</button>
+        </div>
+
+        <section class="dm-panel quest-list-panel" aria-label="Quest list">
+          <div class="section-title-row">
+            <span>Quest List</span>
+            <strong>Active / Finished</strong>
+          </div>
+
+          <div class="quest-list">
+            <button
+              type="button"
+              class="quest-chip quest-chip-active"
+              data-quest-title="Reliquary of Ashen Hill"
+              data-quest-status="Active"
+              data-quest-story="Helen WitchWood asks the party to recover a silver reliquary from the old crypt beneath Ashen Hill."
+              data-quest-reward="50 Gold"
+              data-quest-xp="50"
+              data-quest-giver="Helen WitchWood"
+            >
+              <span>Reliquary of Ashen Hill</span>
+              <strong>Active</strong>
+            </button>
+            <button
+              type="button"
+              class="quest-chip"
+              data-quest-title="The Missing Lantern Boy"
+              data-quest-status="Active"
+              data-quest-story="A frightened innkeeper says her son followed blue lights into the marsh and never returned."
+              data-quest-reward="Potion of Healing"
+              data-quest-xp="75"
+              data-quest-giver="Mara Vell"
+            >
+              <span>The Missing Lantern Boy</span>
+              <strong>Active</strong>
+            </button>
+            <button
+              type="button"
+              class="quest-chip"
+              data-quest-title="Rats in the Old Cellar"
+              data-quest-status="Finished"
+              data-quest-story="The party cleared the inn cellar and found claw marks leading toward the ruined well."
+              data-quest-reward="12 Gold"
+              data-quest-xp="25"
+              data-quest-giver="Borin Kett"
+            >
+              <span>Rats in the Old Cellar</span>
+              <strong>Finished</strong>
+            </button>
+          </div>
+        </section>
+      </section>
+
+      <section class="phone-screen history-screen" data-screen="history-screen" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button type="button" class="back-button" data-target="home" aria-label="Back to menu">
+            Back
+          </button>
+        </header>
+
+        <div class="campaign-heading dm-heading">
+          <p>Campaign Archive</p>
+          <h2>History</h2>
+        </div>
+
+        <section class="dm-panel" aria-label="Campaign history">
+          <div class="history-list">
+            <button
+              type="button"
+              class="history-chip history-chip-active"
+              data-history-title="The Ashen Vault"
+              data-history-role="Player"
+              data-history-status="In Progress"
+              data-history-difficulty="Skeleton"
+              data-history-character="Kael Ironvein"
+              data-history-duration="2 sessions"
+            >
+              <span>The Ashen Vault</span>
+              <strong>Player</strong>
+            </button>
+            <button
+              type="button"
+              class="history-chip"
+              data-history-title="Moonwell Below"
+              data-history-role="Dungeon Master"
+              data-history-status="Finished"
+              data-history-difficulty="Wraith"
+              data-history-character="Elowen Nightbriar"
+              data-history-duration="7 sessions"
+            >
+              <span>Moonwell Below</span>
+              <strong>Dungeon Master</strong>
+            </button>
+            <button
+              type="button"
+              class="history-chip"
+              data-history-title="Lichfire Abbey"
+              data-history-role="Player"
+              data-history-status="Finished"
+              data-history-difficulty="Lich"
+              data-history-character="Seraphine Vale"
+              data-history-duration="11 sessions"
+            >
+              <span>Lichfire Abbey</span>
+              <strong>Player</strong>
+            </button>
+          </div>
+
+          <article class="running-details">
+            <div><span>Name:</span><strong data-history-title-out>The Ashen Vault</strong></div>
+            <div><span>Role:</span><strong data-history-role-out>Player</strong></div>
+            <div><span>Status:</span><strong data-history-status-out>In Progress</strong></div>
+            <div><span>Difficulty:</span><strong data-history-difficulty-out>Skeleton</strong></div>
+            <div><span>Character:</span><strong data-history-character-out>Kael Ironvein</strong></div>
+            <div><span>Duration:</span><strong data-history-duration-out>2 sessions</strong></div>
+          </article>
+        </section>
+      </section>
+
+      <section class="phone-screen social-screen" data-screen="social-screen" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button type="button" class="back-button" data-target="home" aria-label="Back to menu">
+            Back
+          </button>
+        </header>
+
+        <div class="campaign-heading dm-heading">
+          <p>Party Network</p>
+          <h2>Social</h2>
+        </div>
+
+        <button type="button" class="menu-button invite-button">Invite Friends</button>
+
+        <section class="dm-panel friends-panel" aria-label="Friend list">
+          <div class="section-title-row">
+            <span>Friend List</span>
+            <strong>5 friends</strong>
+          </div>
+
+          <div class="friend-list">
+            <article class="friend-row">
+              <div>
+                <strong>Mara Vell</strong>
+                <span>In game - Moonwell Below</span>
+              </div>
+              <i class="status-dot online-dot" aria-label="In game"></i>
+            </article>
+            <article class="friend-row">
+              <div>
+                <strong>Borin Kett</strong>
+                <span>In game - Lichfire Abbey</span>
+              </div>
+              <i class="status-dot online-dot" aria-label="In game"></i>
+            </article>
+            <article class="friend-row">
+              <div>
+                <strong>Helen WitchWood</strong>
+                <span>Online</span>
+              </div>
+              <i class="status-dot idle-dot" aria-label="Online"></i>
+            </article>
+            <article class="friend-row">
+              <div>
+                <strong>Thorne Ashvale</strong>
+                <span>Offline</span>
+              </div>
+              <i class="status-dot offline-dot" aria-label="Offline"></i>
+            </article>
+            <article class="friend-row">
+              <div>
+                <strong>Nyra Candlewick</strong>
+                <span>Offline</span>
+              </div>
+              <i class="status-dot offline-dot" aria-label="Offline"></i>
+            </article>
+          </div>
+        </section>
+
+        <aside class="friend-request-toast" data-friend-request>
+          <div>
+            <span>Friend Request</span>
+            <strong>Osric Thorn sent you a request</strong>
+          </div>
+          <div class="request-actions">
+            <button type="button" class="small-action-button" data-dismiss-request>Accept</button>
+            <button type="button" class="small-action-button danger-action" data-dismiss-request>
+              Refuse
+            </button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="phone-screen news-screen" data-screen="news-screen" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button type="button" class="back-button" data-target="home" aria-label="Back to menu">
+            Back
+          </button>
+        </header>
+
+        <div class="campaign-heading dm-heading">
+          <p>Table Rumors</p>
+          <h2>News</h2>
+        </div>
+
+        <section class="dm-panel news-panel" aria-label="News feed">
+          <article class="news-card">
+            <span>New Book</span>
+            <h3>Tasha's Cauldron of Everything is out</h3>
+            <p>New subclasses, optional class features, magical tattoos, sidekicks, and weird tools for your next campaign.</p>
+          </article>
+          <article class="news-card">
+            <span>Meta Watch</span>
+            <h3>The meta is shifting towards hard melee comps</h3>
+            <p>Frontline-heavy parties are trending, with Cleric support and Fighter control showing strong early-campaign results.</p>
+          </article>
+          <article class="news-card">
+            <span>DM Tip</span>
+            <h3>More short rests, fewer empty rooms</h3>
+            <p>Recent tables are favoring tighter dungeon pacing and clearer rewards after each encounter.</p>
+          </article>
+        </section>
+      </section>
+
+      <section class="phone-screen characters-screen" data-screen="characters-screen" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button type="button" class="back-button" data-target="home" aria-label="Back to menu">
+            Back
+          </button>
+        </header>
+
+        <div class="campaign-heading dm-heading">
+          <p>Character Vault</p>
+          <h2>Your Characters</h2>
+        </div>
+
+        <section class="dm-panel" aria-label="Character list">
+          <button type="button" class="menu-button create-character-button" data-target="character-builder">
+            Create Character
+          </button>
+
+          <div class="character-picker">
+            <button
+              type="button"
+              class="character-chip character-chip-active"
+              data-char-name="Kael Ironvein"
+              data-char-class="Fighter"
+              data-char-level="1"
+              data-char-ac="16"
+              data-char-hp="12/12"
+              data-char-affinity="Iron"
+              data-char-inventory="Longsword, Shield, Torch, Rope"
+            >
+              Kael Ironvein
+            </button>
+            <button
+              type="button"
+              class="character-chip"
+              data-char-name="Seraphine Vale"
+              data-char-class="Wizard"
+              data-char-level="5"
+              data-char-ac="12"
+              data-char-hp="24/24"
+              data-char-affinity="Moon"
+              data-char-inventory="Spellbook, Wand, Ink, Silver Key"
+            >
+              Seraphine Vale
+            </button>
+            <button
+              type="button"
+              class="character-chip"
+              data-char-name="Borin Kett"
+              data-char-class="Rogue"
+              data-char-level="3"
+              data-char-ac="14"
+              data-char-hp="21/21"
+              data-char-affinity="Shadow"
+              data-char-inventory="Daggers, Lockpicks, Cloak, Dice"
+            >
+              Borin Kett
+            </button>
+          </div>
+
+          <article class="monster-sheet character-detail-sheet">
+            <div class="monster-sheet-header">
+              <div>
+                <span>Character Sheet</span>
+                <h3 data-char-name-out>Kael Ironvein</h3>
+              </div>
+              <strong data-char-class-out>Fighter</strong>
+            </div>
+            <div class="monster-stats">
+              <div><span>Level</span><strong data-char-level-out>1</strong></div>
+              <div><span>AC</span><strong data-char-ac-out>16</strong></div>
+              <div><span>HP</span><strong data-char-hp-out>12/12</strong></div>
+            </div>
+            <div class="character-grid">
+              <div><span>Affinity</span><strong data-char-affinity-out>Iron</strong></div>
+              <div><span>Inventory</span><strong data-char-inventory-out>Longsword, Shield, Torch, Rope</strong></div>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section class="phone-screen characters-screen" data-screen="character-builder" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img
+            class="corner-logo"
+            src="assets/midnight-logo.png"
+            alt="MidNight hooded adventurer logo"
+          />
+          <button type="button" class="back-button" data-target="characters-screen" aria-label="Back to characters">
+            Back
+          </button>
+        </header>
+
+        <div class="campaign-heading dm-heading">
+          <p>Character Building</p>
+          <h2>New Adventurer</h2>
+        </div>
+
+        <section class="dm-panel builder-sheet" aria-label="Character builder">
+          <label class="field-group">
+            <span>Name</span>
+            <input type="text" value="Aerin Duskmire" />
+          </label>
+          <div class="quest-reward-grid">
+            <label class="field-group">
+              <span>Class</span>
+              <select>
+                <option>Wizard</option>
+                <option>Fighter</option>
+                <option>Cleric</option>
+                <option>Rogue</option>
+              </select>
+            </label>
+            <label class="field-group">
+              <span>Subclass</span>
+              <select>
+                <option>Evocation</option>
+                <option>Champion</option>
+                <option>Life Domain</option>
+                <option>Thief</option>
+              </select>
+            </label>
+          </div>
+          <div class="monster-stats">
+            <div><span>HP</span><strong>8</strong></div>
+            <div><span>AC</span><strong>12</strong></div>
+            <div><span>Level</span><strong>1</strong></div>
+          </div>
+          <fieldset class="difficulty-field">
+            <legend>Choose Early Spell</legend>
+            <div class="spell-choice-list">
+              <button type="button" class="spell-choice spell-choice-active">Magic Missile</button>
+              <button type="button" class="spell-choice">Shield</button>
+              <button type="button" class="spell-choice">Mage Armor</button>
+            </div>
+          </fieldset>
+          <label class="field-group">
+            <span>Inventory</span>
+            <textarea rows="4">Quarterstaff, Spellbook, Ink, Scholar Pack</textarea>
+          </label>
+          <button type="button" class="menu-button">Save Character</button>
+        </section>
+      </section>
+
+      <section class="phone-screen dm-screen" data-screen="dice-screen" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img class="corner-logo" src="assets/midnight-logo.png" alt="MidNight hooded adventurer logo" />
+          <button type="button" class="back-button" data-tool-back data-target="player-map" aria-label="Back to map">Map</button>
+        </header>
+        <div class="campaign-heading dm-heading">
+          <p>Table Tool</p>
+          <h2>Roll Dice</h2>
+        </div>
+        <section class="dm-panel dice-panel airy-dice-panel" aria-label="Dice roller">
+          <div class="dice-list">
+            <button type="button" class="dice-option" data-dice="d4">d4</button>
+            <button type="button" class="dice-option" data-dice="d6">d6</button>
+            <button type="button" class="dice-option" data-dice="d8">d8</button>
+            <button type="button" class="dice-option" data-dice="d10">d10</button>
+            <button type="button" class="dice-option" data-dice="d12">d12</button>
+            <button type="button" class="dice-option dice-option-active" data-dice="d20">d20</button>
+          </div>
+          <div class="dice-result">
+            <span>Selected</span>
+            <strong data-dice-result>d20</strong>
+          </div>
+          <button type="button" class="menu-button dice-roll-button" data-roll-button>Roll</button>
+          <img class="dice-art-image" src="assets/dice-purple-transparent.png" alt="" aria-hidden="true" />
+          <div class="roll-output" aria-live="polite">
+            <span>Last Roll</span>
+            <strong data-roll-output>-</strong>
+          </div>
+        </section>
+      </section>
+
+      <section class="phone-screen dm-screen" data-screen="player-shop-screen" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img class="corner-logo" src="assets/midnight-logo.png" alt="MidNight hooded adventurer logo" />
+          <button type="button" class="back-button" data-target="player-map" aria-label="Back to map">Map</button>
+        </header>
+        <div class="campaign-heading dm-heading">
+          <p>Market</p>
+          <h2>WitchWood Wares</h2>
+        </div>
+        <section class="dm-panel shop-panel" aria-label="Shop items">
+          <div class="section-title-row">
+            <span>Gold</span>
+            <strong>124 gp</strong>
+          </div>
+          <div class="shop-section">
+            <div class="section-title-row compact-title-row">
+              <span>Shop Stock</span>
+              <strong>Buy</strong>
+            </div>
+            <div class="shop-list">
+              <article class="shop-row"><span>Healing Potion</span><strong>50 gp</strong></article>
+              <article class="shop-row"><span>Silver Dagger</span><strong>75 gp</strong></article>
+              <article class="shop-row"><span>Rope of Ash</span><strong>12 gp</strong></article>
+            </div>
+            <div class="enemy-actions single-action">
+              <button type="button" class="small-action-button">Buy</button>
+            </div>
+          </div>
+          <div class="shop-section">
+            <div class="section-title-row compact-title-row">
+              <span>Your Inventory</span>
+              <strong>Sell Value</strong>
+            </div>
+            <div class="shop-list">
+              <article class="shop-row"><span>Silver Dagger</span><strong>38 gp</strong></article>
+              <article class="shop-row"><span>Old Ruby Ring</span><strong>90 gp</strong></article>
+              <article class="shop-row"><span>Lantern Oil</span><strong>1 gp</strong></article>
+            </div>
+            <div class="enemy-actions single-action">
+              <button type="button" class="small-action-button danger-action">Sell</button>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="phone-screen dm-screen" data-screen="dm-shop-screen" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img class="corner-logo" src="assets/midnight-logo.png" alt="MidNight hooded adventurer logo" />
+          <button type="button" class="back-button" data-target="session-map" aria-label="Back to campaign table">Map</button>
+        </header>
+        <div class="campaign-heading dm-heading">
+          <p>Market Control</p>
+          <h2>WitchWood Wares</h2>
+        </div>
+        <section class="dm-panel shop-panel" aria-label="DM shop editor">
+          <div class="section-title-row">
+            <span>Shop Gold</span>
+            <strong>920 gp</strong>
+          </div>
+          <div class="shop-add-box">
+            <label class="field-group">
+              <span>Item Name</span>
+              <input type="text" value="Moonlit Arrow" />
+            </label>
+            <label class="field-group">
+              <span>Price</span>
+              <input type="text" value="18 gp" />
+            </label>
+          </div>
+          <div class="shop-list">
+            <article class="shop-row"><span>Healing Potion</span><strong>50 gp</strong></article>
+            <article class="shop-row"><span>Silver Dagger</span><strong>75 gp</strong></article>
+            <article class="shop-row"><span>Rope of Ash</span><strong>12 gp</strong></article>
+            <article class="shop-row"><span>Lantern Oil</span><strong>3 gp</strong></article>
+          </div>
+          <div class="enemy-actions">
+            <button type="button" class="small-action-button">Add Item</button>
+            <button type="button" class="small-action-button danger-action">Remove Item</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="phone-screen dm-screen" data-screen="alert-screen" hidden>
+        <header class="campaign-topbar dm-topbar">
+          <img class="corner-logo" src="assets/midnight-logo.png" alt="MidNight hooded adventurer logo" />
+          <button type="button" class="back-button" data-target="session-map" aria-label="Back to campaign table">Map</button>
+        </header>
+        <div class="campaign-heading dm-heading">
+          <p>Campaign Reminder</p>
+          <h2>Alert Players</h2>
+        </div>
+        <section class="dm-panel alert-panel" aria-label="Alert players">
+          <label class="field-group">
+            <span>Create Alert</span>
+            <textarea rows="4">Session starts in 30 minutes. Bring your character sheet and roll initiative mood.</textarea>
+          </label>
+          <div class="player-list">
+            <article class="player-row"><div class="player-identity"><strong>Elowen Nightbriar</strong></div><span class="player-role">Owner</span></article>
+            <article class="player-row"><div class="player-identity"><strong>Kael Ironvein</strong></div><span class="player-role">Player</span></article>
+            <article class="player-row"><div class="player-identity"><strong>Seraphine Vale</strong></div><span class="player-role">Player</span></article>
+          </div>
+          <button type="button" class="menu-button">Send Alert</button>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
